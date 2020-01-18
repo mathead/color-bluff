@@ -2,6 +2,7 @@ tool
 extends "res://Character.gd"
 
 export var speed = 2000
+var energy = 100.0
 
 func _physics_process(delta):
     var velocity = Vector2()  # The player's movement vector.
@@ -16,3 +17,6 @@ func _physics_process(delta):
     if velocity.length() > 0:
         velocity = velocity.normalized() * speed * delta
     apply_central_impulse(velocity)
+
+func _process(delta):
+	energy -= delta
