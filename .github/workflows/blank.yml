@@ -26,8 +26,10 @@ jobs:
         godot_template_version: 3.1.2.stable
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: mkdir
+      run: mkdir -p /github/workspace/build
     - name: copy
-      run: cp /home/runner/.local/share/godot/builds/0/* /github/workspace/build
+      run: cp -r /home/runner/.local/share/godot/builds/0/* /github/workspace/build
     - name: Deploy to GitHub Pages
       uses: maxheld83/ghpages@v0.2.1
       env:
