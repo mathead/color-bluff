@@ -2,32 +2,32 @@
 
 [ext_resource path="res://Character.gd" type="Script" id=1]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=13]
-default_input_values = [ 0, 0.0, 1, 0.2 ]
+[sub_resource type="VisualShaderNodeScalarOp" id=1]
+default_input_values = [ 0, 0.0, 1, 0.05 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeInput" id=7]
+[sub_resource type="VisualShaderNodeInput" id=2]
 input_name = "color"
 
-[sub_resource type="VisualShaderNodeInput" id=8]
+[sub_resource type="VisualShaderNodeInput" id=3]
 input_name = "time"
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=9]
+[sub_resource type="VisualShaderNodeScalarFunc" id=4]
 function = 0
 
-[sub_resource type="VisualShaderNodeVectorCompose" id=10]
+[sub_resource type="VisualShaderNodeVectorCompose" id=5]
 
-[sub_resource type="VisualShaderNodeVectorInterp" id=11]
+[sub_resource type="VisualShaderNodeVectorInterp" id=6]
 output_port_for_preview = 0
 
-[sub_resource type="VisualShaderNodeVectorFunc" id=12]
+[sub_resource type="VisualShaderNodeVectorFunc" id=7]
 function = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=14]
-default_input_values = [ 0, 0.0, 1, 2.0 ]
+[sub_resource type="VisualShaderNodeScalarOp" id=8]
+default_input_values = [ 0, 0.0, 1, 5.0 ]
 operator = 2
 
-[sub_resource type="VisualShader" id=5]
+[sub_resource type="VisualShader" id=9]
 code = "shader_type canvas_item;
 
 
@@ -51,7 +51,7 @@ void fragment() {
 	n_out3p0 = TIME;
 
 // ScalarOp:9
-	float n_in9p1 = 2.00000;
+	float n_in9p1 = 5.00000;
 	float n_out9p0;
 	n_out9p0 = n_out3p0 * n_in9p1;
 
@@ -60,7 +60,7 @@ void fragment() {
 	n_out4p0 = sin(n_out9p0);
 
 // ScalarOp:10
-	float n_in10p1 = 0.20000;
+	float n_in10p1 = 0.05000;
 	float n_out10p0;
 	n_out10p0 = n_out4p0 * n_in10p1;
 
@@ -82,43 +82,43 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -591.641, 0 )
+graph_offset = Vector2( -838.866, 0 )
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2( 840, 140 )
-nodes/fragment/2/node = SubResource( 7 )
+nodes/fragment/2/node = SubResource( 2 )
 nodes/fragment/2/position = Vector2( -800, 140 )
-nodes/fragment/3/node = SubResource( 8 )
+nodes/fragment/3/node = SubResource( 3 )
 nodes/fragment/3/position = Vector2( -1680, 560 )
-nodes/fragment/4/node = SubResource( 9 )
+nodes/fragment/4/node = SubResource( 4 )
 nodes/fragment/4/position = Vector2( -920, 580 )
-nodes/fragment/5/node = SubResource( 10 )
+nodes/fragment/5/node = SubResource( 5 )
 nodes/fragment/5/position = Vector2( -100, 540 )
-nodes/fragment/6/node = SubResource( 11 )
+nodes/fragment/6/node = SubResource( 6 )
 nodes/fragment/6/position = Vector2( 400, 100 )
-nodes/fragment/8/node = SubResource( 12 )
+nodes/fragment/8/node = SubResource( 7 )
 nodes/fragment/8/position = Vector2( -180, 220 )
-nodes/fragment/9/node = SubResource( 14 )
+nodes/fragment/9/node = SubResource( 8 )
 nodes/fragment/9/position = Vector2( -1300, 520 )
-nodes/fragment/10/node = SubResource( 13 )
+nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( -520, 520 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 6, 0, 5, 0, 6, 2, 6, 0, 0, 0, 8, 0, 6, 1, 3, 0, 9, 0, 9, 0, 4, 0, 2, 0, 8, 0, 4, 0, 10, 0, 10, 0, 5, 0, 10, 0, 5, 1, 10, 0, 5, 2 )
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=11]
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=12]
 radius = 30.0499
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=13]
 offsets = PoolRealArray( 0.00331126, 0.81457, 1 )
 colors = PoolColorArray( 0.989092, 0.991819, 0.99591, 1, 0.968627, 0.976471, 0.988235, 1, 1, 1, 1, 0 )
 
 [node name="Character" type="RigidBody2D"]
-material = SubResource( 6 )
-physics_material_override = SubResource( 1 )
+material = SubResource( 10 )
+physics_material_override = SubResource( 11 )
 contact_monitor = true
 linear_damp = 8.12
 script = ExtResource( 1 )
@@ -131,7 +131,7 @@ colors = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 12 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 100
@@ -146,4 +146,4 @@ tangential_accel_random = 0.56
 damping = 12.37
 scale_amount = 2.0
 scale_amount_random = 1.0
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 13 )

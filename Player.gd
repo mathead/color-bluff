@@ -1,3 +1,4 @@
+tool
 extends "res://Character.gd"
 
 export var speed = 2000
