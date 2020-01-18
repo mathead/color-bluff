@@ -11,5 +11,8 @@ export var colors = {
 	Team.YELLOW: Color("d5c916"),
 }
 
+func _ready():
+	$CPUParticles2D.color = colors[team]
+
 func _draw():
 	draw_circle(Vector2(0, 0), 30, colors[team])

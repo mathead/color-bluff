@@ -6,8 +6,8 @@
 [node name="Level" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+material = null
 position = Vector2( 482.936, 296.058 )
-scale = Vector2( 1, 1 )
 colors = {
 0: Color( 0, 0, 0, 1 ),
 1: Color( 0.811765, 0.0901961, 0.0901961, 1 ),
