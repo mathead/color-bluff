@@ -135,6 +135,7 @@ shape = SubResource( 12 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 100
+lifetime = 2.0
 local_coords = false
 emission_shape = 1
 emission_sphere_radius = 30.0
